@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Rithin Vadlamudi — Resume</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:   #FBF9F4;
+    --ink:     #1B1F23;
+    --muted:   #676F76;
+    --accent:  #2D5D57;
+    --accent-soft: #E4EBE7;
+    --line:    #DCD5C4;
+  }
+
+  *{ box-sizing:border-box; }
+
+  body{
+    margin:0;
+    background: #E8E3D6;
+    color: var(--ink);
+    font-family:'Inter', sans-serif;
+    display:flex;
+    justify-content:center;
+    padding: 40px 16px;
+  }
+
+  .sheet{
+    width: 100%;
+    max-width: 880px;
+    background: var(--paper);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 20px 40px rgba(0,0,0,0.12);
+    display: grid;
+    grid-template-columns: 260px 1fr;
+  }
+
+  /* ---------- SIDEBAR ---------- */
+  .sidebar{
+    background: var(--ink);
+    color: var(--paper);
+    padding: 44px 30px;
+  }
+
+  .sidebar .name{
+    font-family:'Newsreader', serif;
+    font-size: 30px;
+    line-height: 1.15;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 4px 0;
+  }
+
+  .sidebar .role{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #B9C9C3;
+    margin-bottom: 30px;
+  }
+
+  .side-block{ margin-bottom: 30px; }
+
+  .side-h{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #7E938C;
+    margin-bottom: 10px;
+  }
+
+  .contact-item{
+    font-size: 12.5px;
+    line-height: 1.9;
+    word-break: break-word;
+  }
+  .contact-item a{ color: var(--paper); text-decoration:none; border-bottom: 1px solid #4A5A54; }
+  .contact-item a:hover{ border-color: #B9C9C3; }
+
+  .skill-group{ margin-bottom: 12px; }
+  .skill-group .g-label{
+    font-size: 11.5px;
+    color: #9FB0A9;
+    margin-bottom: 4px;
+  }
+  .skill-tags{ display:flex; flex-wrap:wrap; gap: 5px; }
+  .tag{
+    font-size: 11px;
+    padding: 3px 8px;
+    border: 1px solid #3F4B47;
+    border-radius: 2px;
+    color: #DCE5E1;
+  }
+
+  .lang-row{
+    display:flex;
+    justify-content: space-between;
+    font-size: 12.5px;
+    padding: 4px 0;
+    border-bottom: 1px solid #2C3A35;
+  }
+  .lang-row span:last-child{ color: #7E938C; font-family:'IBM Plex Mono', monospace; font-size: 11px; }
+
+  .edu-item{ margin-bottom: 16px; }
+  .edu-school{ font-size: 12.5px; font-weight: 600; line-height:1.4; }
+  .edu-detail{ font-size: 11.5px; color: #9FB0A9; margin-top: 2px; line-height: 1.6; }
+  .edu-detail .score{ color: #DCE5E1; }
+
+  /* ---------- MAIN ---------- */
+  .main{ padding: 44px 40px; }
+
+  .lede{
+    font-family:'Newsreader', serif;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--muted);
+    border-left: 2px solid var(--accent);
+    padding-left: 16px;
+    margin: 0 0 38px 0;
+  }
+
+  .section{ margin-bottom: 34px; }
+  .section:last-child{ margin-bottom: 0; }
+
+  .section-h{
+    display:flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .section-h .num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+  }
+  .section-h .t{
+    font-family:'Newsreader', serif;
+    font-size: 19px;
+    font-weight: 600;
+  }
+  .section-h .rule{
+    flex:1;
+    height:1px;
+    background: var(--line);
+  }
+
+  .project{
+    padding: 16px 0;
+    border-top: 1px solid var(--line);
+  }
+  .project:first-of-type{ border-top: none; padding-top: 0; }
+
+  .project-head{
+    display:flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .project-title{
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .project ul{
+    margin: 0 0 10px 0;
+    padding-left: 18px;
+  }
+  .project li{
+    font-size: 13px;
+    line-height: 1.65;
+    color: #3C4248;
+    margin-bottom: 3px;
+  }
+
+  .stack{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .stack span{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 3px 8px;
+    border-radius: 2px;
+  }
+
+  .cert-list, .por-list{
+    list-style:none;
+    margin:0; padding:0;
+  }
+  .cert-list li{
+    display:flex;
+    gap: 10px;
+    font-size: 13px;
+    padding: 8px 0;
+    border-top: 1px solid var(--line);
+  }
+  .cert-list li:first-child{ border-top:none; }
+  .cert-list .dot{ color: var(--accent); }
+  .cert-issuer{ color: var(--muted); }
+
+  .por-item{
+    padding: 12px 0;
+    border-top: 1px solid var(--line);
+  }
+  .por-item:first-child{ border-top: none; }
+  .por-title{ font-size: 13.5px; font-weight: 600; margin-bottom: 5px; }
+  .por-title .org{ font-weight: 400; color: var(--muted); }
+  .por-item ul{ margin: 0; padding-left: 18px; }
+  .por-item li{ font-size: 12.5px; line-height: 1.6; color: #3C4248; }
+
+  @media print{
+    body{ background: var(--paper); padding:0; }
+    .sheet{ box-shadow:none; width:100%; max-width:100%; }
+  }
+
+  @media (max-width: 720px){
+    .sheet{ grid-template-columns: 1fr; }
+    .sidebar{ padding: 32px 26px; }
+    .main{ padding: 32px 26px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="name">Rithin<br>Vadlamudi</div>
+    <div class="role">Computer Science &amp; Engineering</div>
+
+    <div class="side-block">
+      <div class="side-h">Contact</div>
+      <div class="contact-item"><a href="mailto:rithinvadlamudi@gmail.com">rithinvadlamudi@gmail.com</a></div>
+      <div class="contact-item">+91 93902 05389</div>
+      <div class="contact-item"><a href="#" target="_blank">GitHub ↗</a></div>
+      <div class="contact-item"><a href="#" target="_blank">LinkedIn ↗</a></div>
+    </div>
+
+    <div class="side-block">
+      <div class="side-h">Education</div>
+      <div class="edu-item">
+        <div class="edu-school">Integrated M.Tech, CSE</div>
+        <div class="edu-detail">VIT-AP University · 2023–2028</div>
+        <div class="edu-detail">CGPA <span class="score">8.08</span></div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-school">Intermediate (Class XII)</div>
+        <div class="edu-detail">Narayana Junior College · 2021–2023</div>
+        <div class="edu-detail"><span class="score">97.5%</span></div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-school">Class X</div>
+        <div class="edu-detail">Narayana EM High School · 2020–2021</div>
+        <div class="edu-detail"><span class="score">98%</span></div>
+      </div>
+    </div>
+
+    <div class="side-block">
+      <div class="side-h">Skills</div>
+      <div class="skill-group">
+        <div class="g-label">Languages</div>
+        <div class="skill-tags">
+          <span class="tag">Python</span><span class="tag">Java</span><span class="tag">R</span><span class="tag">C++</span><span class="tag">SQL</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="g-label">Tools</div>
+        <div class="skill-tags">
+          <span class="tag">VS Code</span><span class="tag">Eclipse</span><span class="tag">MATLAB</span><span class="tag">Cisco Packet Tracer</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="g-label">Technologies</div>
+        <div class="skill-tags">
+          <span class="tag">Cloud</span><span class="tag">Web Dev</span><span class="tag">IoT</span><span class="tag">OS</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-block">
+      <div class="side-h">Languages</div>
+      <div class="lang-row"><span>English</span><span>Fluent</span></div>
+      <div class="lang-row"><span>Telugu</span><span>Native</span></div>
+      <div class="lang-row"><span>Hindi</span><span>Intermediate</span></div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <p class="lede">Integrated M.Tech CSE student building across IoT, NLP, and applied software systems — with a habit of shipping small, working things end to end.</p>
+
+    <section class="section">
+      <div class="section-h"><span class="num">01</span><span class="t">Projects</span><span class="rule"></span></div>
+
+      <div class="project">
+        <div class="project-head">
+          <div class="project-title">EnerGenius — IoT Based Energy Management System</div>
+        </div>
+        <ul>
+          <li>Designed an IoT-based system to monitor and optimize energy usage in urban buildings.</li>
+          <li>Integrated real-time sensor data with cloud dashboards for monitoring and analysis.</li>
+          <li>Analyzed real-time energy data to identify consumption patterns and improve efficiency.</li>
+        </ul>
+        <div class="stack"><span>IoT Sensors</span><span>Cloud Dashboard</span></div>
+      </div>
+
+      <div class="project">
+        <div class="project-head">
+          <div class="project-title">Sentiment Analysis of Product Reviews</div>
+        </div>
+        <ul>
+          <li>Developed a cloud-based system to analyze product reviews and determine sentiment polarity.</li>
+          <li>Used NLP techniques to analyze customer feedback data.</li>
+        </ul>
+        <div class="stack"><span>Python</span><span>NLP</span><span>Cloud Computing</span></div>
+      </div>
+
+      <div class="project">
+        <div class="project-head">
+          <div class="project-title">Employee Payroll System</div>
+        </div>
+        <ul>
+          <li>Developed a payroll management system to store employee information and automate salary calculations.</li>
+          <li>Implemented features for maintaining employee records and salary generation.</li>
+        </ul>
+        <div class="stack"><span>Java</span><span>MySQL</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-h"><span class="num">02</span><span class="t">Coursework</span><span class="rule"></span></div>
+      <div class="stack">
+        <span>Data Structures</span><span>OOP</span><span>DBMS</span><span>Software Engineering</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-h"><span class="num">03</span><span class="t">Certifications</span><span class="rule"></span></div>
+      <ul class="cert-list">
+        <li><span class="dot">—</span><span>MATLAB Programming <span class="cert-issuer">· MathWorks</span></span></li>
+        <li><span class="dot">—</span><span>Digital Image Processing using MATLAB <span class="cert-issuer">· MathWorks</span></span></li>
+        <li><span class="dot">—</span><span>Hedera Hashgraph Developer Course <span class="cert-issuer">· Hedera / Hashgraph</span></span></li>
+        <li><span class="dot">—</span><span>Java Programming Course <span class="cert-issuer">· GeeksforGeeks</span></span></li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="section-h"><span class="num">04</span><span class="t">Positions of Responsibility</span><span class="rule"></span></div>
+
+      <div class="por-item">
+        <div class="por-title">Club Member <span class="org">— Student Activities, VIT-AP</span></div>
+        <ul>
+          <li>Participated in student club activities and collaborative university programs.</li>
+          <li>Contributed to organizing campus initiatives and events.</li>
+        </ul>
+      </div>
+
+      <div class="por-item">
+        <div class="por-title">Event Volunteer</div>
+        <ul>
+          <li>Volunteered in university technical events and supported event coordination.</li>
+          <li>Assisted with registrations and event management.</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+</body>
+</html>
